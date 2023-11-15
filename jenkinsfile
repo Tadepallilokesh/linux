@@ -13,7 +13,7 @@ pipeline {
                     docker.image(imageName).pull()
 
                     // Run the Docker container
-                    def httpdContainer = docker.container(imageName).withRun('-d -p 8080:80 --name ${containerName}')
+                    def httpdContainer = docker.container(${imageName}).withRun('-d -p 8080:80 --name ${containerName}')
 
                     // Print container ID for reference
                     echo "Container ID: ${httpdContainer.id}"
