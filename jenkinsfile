@@ -10,7 +10,7 @@ pipeline {
                     def containerName = 'my-httpd-container'
 
                     // Pull the httpd Docker image from Docker Hub
-                    docker.image(imageName).pull()
+                    docker.image(${imageName}).pull()
 
                     // Run the Docker container
                     def httpdContainer = docker.container(${imageName}).withRun('-d -p 8080:80 --name ${containerName}')
